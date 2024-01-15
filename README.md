@@ -4,6 +4,10 @@
 
 JavaScript App
 
+### Exam information
+ - Student : DE VREESE Anthony
+ - Github repository URL : https://github.com/anthony-devreese-vinci/devops_exam_2024
+
 ### Prerequisites
 
 -   [Node JS / NPM](https://nodejs.org/en/)
