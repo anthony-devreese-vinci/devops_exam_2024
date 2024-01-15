@@ -2,8 +2,8 @@
 const { isValid } = require('../validations');
 
 describe('validations tests suites - isValid', () => {
-    test('should return true or false as the function is defined', () => {
-        const result = isValid();
-        expect(result).toBeDefined();
+    test('test should return false for a gamertag having fewer than 8 characters', () => {
+        const result = isValid('fewer');
+        expect(result).toBe('Invalid - gamertag length must be at least 8 characters');
     });
 });
