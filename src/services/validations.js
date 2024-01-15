@@ -8,8 +8,19 @@ const isValid = (gamerTag) => {
     if(!specialCharacters.some(char => gamerTag.includes(char))) {
         return 'Invalid - gamertag must contain at least a special character';
     }
-    
-    return 'Valid - gamertag is valid';
+
+    for (const char of gamerTag) {
+        if(isDigit(char)) {
+            return 'valid';
+        }
+    }
+
+    return 'Invalid - gamertag must contain at least a number';
+
+};
+
+const isDigit = (char) => {
+    return char >= '0' && char <= '9';
 };
 
 exports.isValid = isValid;

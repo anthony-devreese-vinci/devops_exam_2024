@@ -10,4 +10,8 @@ describe('validations tests suites - isValid', () => {
         const result = isValid('longenough');
         expect(result).toBe('Invalid - gamertag must contain at least a special character');
     });
+    test('test should return "Invalid - gamertag must contain at least a number" for a gamertag not having numbers', () => {
+        const result = isValid('special_characters');
+        expect(result).toBe('Invalid - gamertag must contain at least a number');
+    });
 });
