@@ -1,0 +1,41 @@
+name : Continuous Integratrion
+
+on :
+    pull_request :
+        branches: [ main ]
+        types : [opened, edited]
+jobs : 
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          
+        - name: Setup NodeJs env
+          uses: actions/setup-node@v3
+          with:
+            node-version: '20.x'
+
+        - name: Install all dependencies
+          run: npm i
+        
+        - name: Starting time
+          run: echo "Starting time `date +%H:%M:%S`"
+
+        - name: Run Prettier
+          run: npm run prettier:write
+        
+        - name: Run Eslint
+          run: npm run lint:fix
+
+        - name: Run test coverage
+          run: npm run test
+        
+        - name: Build
+          run: npm run build
+
+        - name: End time
+          run: echo "End time `date +%H:%M:%S`"
+
+        - name: Success
+          run: echo "PIPELINE SUCCESS WITHOUT ERRORS" 
